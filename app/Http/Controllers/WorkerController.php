@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+
+use App\Worker;
+
+use App\Company;
 
 class WorkerController extends Controller
 {
@@ -14,6 +18,8 @@ class WorkerController extends Controller
     public function index()
     {
         //
+        $workers = Worker::latest('created_at')->get();
+        return view('workers/index', compact('workers'));
     }
 
     /**
@@ -24,6 +30,10 @@ class WorkerController extends Controller
     public function create()
     {
         //
+        $companies = Company::pluck('name', 'id');
+        
+        return view('workers/create', compact('companies'));
+
     }
 
     /**
@@ -35,6 +45,11 @@ class WorkerController extends Controller
     public function store(Request $request)
     {
         //
+        $new_worker = Request::all();
+
+        Worker::create($new_worker);
+
+        return redirect('workers');
     }
 
     /**
@@ -57,6 +72,11 @@ class WorkerController extends Controller
     public function edit($id)
     {
         //
+        $worker = Worker::findOrFail($id);
+
+        $companies = Company::pluck('name', 'id');
+
+        return view('workers/edit', compact('worker', 'companies'));
     }
 
     /**
@@ -69,6 +89,11 @@ class WorkerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $worker = Worker::findOrFail($id);
+
+        $worker->update(Request::all());
+
+        return redirect('workers');
     }
 
     /**
@@ -80,5 +105,9 @@ class WorkerController extends Controller
     public function destroy($id)
     {
         //
+        Worker::destroy($id);  
+
+        return redirect('workers');
+            
     }
 }

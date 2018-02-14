@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('type', 'Type') !!}
-            {!! Form::select('type', ['private' => 'private', 'public' => 'public'], null, ['class' => 'form-control', 'placeholder' => 'Pick a type...']) !!}
+            {!! Form::select('type', ['private' => 'Private', 'public' => 'Public'], null, ['class' => 'form-control', 'placeholder' => 'Pick a type...']) !!}
         </div>
         <div class="form-group">
             {!! Form::submit('Add Company', ['class' => 'btn btn-primary form-control']) !!}

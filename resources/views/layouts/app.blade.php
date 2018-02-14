@@ -55,7 +55,7 @@
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Workers, desarrollada por lomelisan para prueba de trabajo en exp</span>
+        <span class="text-muted"><i class="fas fa-code"></i> por <a href="http://lomelisan.com.ve">lomelisan</a> para prueba de trabajo en <a href="http://exp.com.ve">EXP</a></span>
       </div>
     </footer>
 

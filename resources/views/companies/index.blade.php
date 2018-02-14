@@ -20,6 +20,7 @@
                 <th scope="col">Headquarters</th>
                 <th scope="col">Industry</th>
                 <th scope="col">Type</th>
+                <th scope="col">Workers</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                         <td>{{ $company->headquarters }}</td>
                         <td>{{ $company->industry }}</td>
                         <td>{{ $company->type }}</td>
+                        <td>{{ $company->workers->count() }}</td>
                         <td>
                             <a href="{{ route('companies.edit', $company->id) }}"><i class="fas fa-pencil-alt"></i></a>
 

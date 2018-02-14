@@ -15,7 +15,7 @@ class Worker extends Model
     ];
 
     // Relación Uno a Muchos INVERSA (Un trabajador pertenece solo a una empresa).
-    public function companies(){
+    public function company(){
     	return $this->belongsTo('App\Company');
     }
 }
